@@ -46,8 +46,7 @@ const typeController = (e) => {
     display.innerHTML += `<span class="green">${newLetter === " " ? "▪" : newLetter}</span>`;
   } else {
     display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter}</span>`;
-    // display.innerHTML += `<span class="red">${newLetter === " " ? "▪" : newLetter.length}</span>`;
-    
+    errorCount++;
   }
 
   // check if given question text is equal to user typed text
@@ -70,6 +69,7 @@ const gameOver = () => {
   // the current time is the finish time
   // so total time taken is current time - start time
   const finishTime = new Date().getTime();
+  
   const timeTaken = (finishTime - startTime) / 1000;
 
   // show result modal
@@ -87,13 +87,13 @@ const gameOver = () => {
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
-
+  // console.log(errorCount++)
   addHistory(questionText, timeTaken, errorCount);
 
   // restart everything
   startTime = null;
   errorCount = 0;
-  // errorCount += 1;
+  // errorCount++;
   userText = "";
   display.classList.add("inactive");
 };
@@ -144,5 +144,5 @@ setInterval(() => {
   // console.log(currentTime)
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
-  // console.log(startTime)
+  // console.log(timeSpent)
 }, 1000);

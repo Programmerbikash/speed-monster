@@ -57,7 +57,6 @@ const typeController = (e) => {
 
 const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
-    // console.log(userText)
     return true;
   }
   return false;
@@ -71,7 +70,6 @@ const gameOver = () => {
   const finishTime = new Date().getTime();
   
   const timeTaken = (finishTime - startTime) / 1000;
-
   // show result modal
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
@@ -87,13 +85,11 @@ const gameOver = () => {
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
-  // console.log(errorCount++)
   addHistory(questionText, timeTaken, errorCount);
 
   // restart everything
   startTime = null;
   errorCount = 0;
-  // errorCount++;
   userText = "";
   display.classList.add("inactive");
 };
@@ -120,11 +116,9 @@ const start = () => {
       // countdownOverlay.style.display = "flex";
       countdownOverlay.style.display = "none";
       display.classList.remove("inactive");
-      // console.log(count);
       clearInterval(startCountdown);
       startTime = new Date().getTime();
     }
-    // console.log('out side count')
     count--;
   }, 1000);
 };
@@ -139,10 +133,7 @@ displayHistory();
 setInterval(() => {
   // const currentTime = new Date().getTime();
   const currentTime = new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
-  
-  // console.log(currentTime)
+  const timeSpent = parseInt((currentTime - startTime) / 1000);
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
-  // console.log(timeSpent)
 }, 1000);

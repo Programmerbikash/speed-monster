@@ -181,6 +181,31 @@ button {
   top: 0;
 }
 
+/* Large devices */
+@media only screen and (min-width: 992px) {
+  .box-container {
+    padding: 0 20px;
+    width: 80%;
+  }
+  .card {
+    flex-direction: column;
+    width: 30%;
+  }
+}
+
+/* Medium devices */
+@media (min-width: 701px) and (max-width: 991px) {
+  .box-container {
+    padding: 0 20px;
+    width: 100%;
+  }
+  .card {
+    flex-direction: column;
+    width: 49%;
+  }
+}
+
+/* Small devices */
 @media only screen and (max-width: 700px) {
   .box-container {
     padding: 0 20px;
@@ -188,5 +213,6 @@ button {
   }
   .card {
     flex-direction: column;
+    width: 100%;
   }
 }
